@@ -124,7 +124,7 @@ def dos(w, h):
     while x < bx + 176:
         bw = r.choice([1, 1, 2, 3]); s += f'<rect x="{x}" y="{byy+14}" width="{bw}" height="66" fill="#111"/>'; x += bw + r.choice([1, 2, 2, 3])
     s += texte(SANS_R, "ISBN 978-2-0000-0000-0", 9, bx + 95, byy + 96, anchor="middle", fill="#111")
-    s += texte(SANS, "14,90 € · 9 500 FCFA", 10, 50, h - 70, track=.12, fill=COL["sable"])
+    s += texte(SANS, "14,90 €", 10, 50, h - 70, track=.12, fill=COL["sable"])
     s += texte(SANS, L["editeur"].upper(), 9, 50, h - 52, track=.3, fill=COL["corail"])
     return s
 
