@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lire l'extrait — Ce que la marée rapporte</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="fichiers/couverture-face.svg">
+<style>
+:root{--bg:#f6f1e7;--ink:#1f1d1a;--mute:#8a8174;--acc:#b4563f;--bar:#ece5d8;--fs:19px}
+[data-t=sepia]{--bg:#efe2c8;--ink:#3b2e1e;--mute:#8d7553;--bar:#e4d4b4}
+[data-t=nuit]{--bg:#0f1b1f;--ink:#d6d9d4;--mute:#6f817f;--acc:#e8765c;--bar:#18292e}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Libre Caslon Text',Georgia,serif;transition:background .4s,color .4s}
+header{height:56px;display:flex;align-items:center;gap:10px;padding:0 18px;font:600 13px Karla,sans-serif}
+header a{color:inherit;text-decoration:none;opacity:.7}
+header .t{flex:1;text-align:center;font:400 15px 'Libre Caslon Display';opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button{font:600 13px Karla;color:var(--ink);background:none;border:1px solid color-mix(in srgb,var(--ink) 18%,transparent);border-radius:100px;height:34px;min-width:34px;padding:0 12px;cursor:pointer}
+button:hover{background:var(--bar)}
+#view{position:absolute;top:56px;bottom:64px;left:0;right:0;overflow:hidden}
+#flow{height:100%;column-fill:auto;column-gap:0;transition:transform .55s cubic-bezier(.3,.7,.2,1);font-size:var(--fs);line-height:1.6;hyphens:auto;-webkit-hyphens:auto}
+.chap{break-before:column;padding-top:9vh}
+.chap .n{font:600 11px Karla;letter-spacing:.32em;color:var(--acc);text-align:center}
+.chap h2{font:400 2em/1.1 'Libre Caslon Display';text-align:center;margin:.3em 0 1.4em}
+p{text-indent:1.4em;text-align:justify;margin:0}
+p.premier{text-indent:0}p.premier::first-letter{font:400 3.4em/.82 'Libre Caslon Display';float:left;margin:.06em .08em 0 0;color:var(--acc)}
+.couv{break-before:column;height:100%;display:grid;place-items:center;text-align:center;padding:4vh 0}
+.couv img{max-height:62vh;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border-radius:2px 6px 6px 2px}
+.fin{break-before:column;height:100%;display:grid;place-items:center;text-align:center;font:400 22px 'Libre Caslon Display'}
+.fin a{display:inline-block;margin-top:18px;font:600 14px Karla;color:var(--bg);background:var(--acc);padding:12px 22px;border-radius:100px;text-decoration:none}
+footer{position:absolute;bottom:0;left:0;right:0;height:64px;display:flex;align-items:center;gap:14px;padding:0 18px;font:400 12.5px Karla;color:var(--mute)}
+.prog{flex:1;height:3px;background:var(--bar);border-radius:3px;position:relative;cursor:pointer}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:var(--acc);border-radius:3px;transition:width .5s}
+.zone{position:absolute;top:56px;bottom:64px;width:22%;z-index:2;cursor:pointer}
+.zone.l{left:0}.zone.r{right:0}
+.panel{position:absolute;top:58px;right:14px;background:var(--bg);border:1px solid var(--bar);border-radius:16px;padding:16px;z-index:5;width:260px;display:none;box-shadow:0 20px 50px -20px rgba(0,0,0,.35);font-family:Karla}
+.panel.on{display:block}
+.panel h4{font:600 11px Karla;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin:12px 0 8px}
+.panel h4:first-child{margin-top:0}
+.row{display:flex;gap:8px}
+.th{width:44px;height:44px;border-radius:50%;padding:0}
+.toc a{display:block;padding:7px 0;color:var(--ink);text-decoration:none;font-size:14px;border-bottom:1px solid var(--bar)}
+</style></head>
+<body data-t="jour">
+<header><a href="index.html">← Le livre</a><span class="t" id="ct">Ce que la marée rapporte</span><button id="opt" aria-label="Options de lecture">Aa</button></header>
+<div class="panel" id="panel">
+  <h4>Taille du texte</h4><div class="row"><button id="fm">A−</button><button id="fp">A+</button></div>
+  <h4>Ambiance</h4><div class="row"><button class="th" data-t="jour" style="background:#f6f1e7;color:#1f1d1a">Jour</button><button class="th" data-t="sepia" style="background:#efe2c8;color:#3b2e1e">Sépia</button><button class="th" data-t="nuit" style="background:#0f1b1f;color:#d6d9d4">Nuit</button></div>
+  <h4>Chapitres</h4><div class="toc" id="toc"></div>
+</div>
+<div id="view"><div id="flow"><div class="pg" id="pg"></div></div></div>
+<div class="zone l" id="zl" aria-label="Page précédente"></div><div class="zone r" id="zr" aria-label="Page suivante"></div>
+<footer><button id="prev" aria-label="Page précédente">‹</button><span id="pn">1 / 1</span><div class="prog" id="prog"><i id="pi"></i></div><span id="left"></span><button id="next" aria-label="Page suivante">›</button></footer>
+<script src="texte.js"></script>
+<script>
+const $=s=>document.querySelector(s);const N=['UN','DEUX','TROIS','QUATRE'];
+const st=(()=>{try{return JSON.parse(localStorage.getItem('maree'))||{}}catch{return{}}})();
+let fs=st.fs||19,page=0,pages=1,ratio=st.r||0;
+$('#pg').innerHTML=`<div class="couv"><div><img src="fichiers/couverture-face.svg" alt="Couverture"><p style="margin-top:24px;font:600 12px Karla;letter-spacing:.24em;color:var(--mute)">EXTRAIT · 4 CHAPITRES</p></div></div>`+
+ LIVRE.chapitres.map((c,i)=>`<div class="chap" data-c="${i}"><div class="n">${N[i]}</div><h2>${c.titre}</h2>${c.paras.map((p,j)=>`<p class="${j?'':'premier'}">${p}</p>`).join('')}</div>`).join('')+
+ `<div class="fin"><div>Fin de l'extrait.<br><span style="font-size:16px;opacity:.7">La suite dans le livre.</span><br><a href="index.html#commander">Commander le livre</a></div></div>`;
+$('#toc').innerHTML=LIVRE.chapitres.map((c,i)=>`<a href="#" data-c="${i}">${i+1}. ${c.titre}</a>`).join('');
+const flow=$('#flow'),view=$('#view');
+function layout(){
+  document.documentElement.style.setProperty('--fs',fs+'px');
+  const w=view.clientWidth,pad=Math.max(28,(w-640)/2);flow.style.padding=`0 ${pad}px`;flow.style.columnWidth=(w-2*pad)+'px';flow.style.columnGap=(2*pad)+'px';flow.style.width=w+'px';
+  flow.style.transition='none';
+  pages=Math.max(1,Math.round((flow.scrollWidth+pad)/w));
+  page=Math.min(pages-1,Math.round(ratio*(pages-1)));go(page,true);
+}
+function go(n,instant){
+  page=Math.max(0,Math.min(pages-1,n));ratio=pages>1?page/(pages-1):0;
+  if(!instant)flow.style.transition='';
+  flow.style.transform=`translateX(${-page*view.clientWidth}px)`;
+  $('#pn').textContent=`${page+1} / ${pages}`;$('#pi').style.width=(ratio*100)+'%';
+  const rem=pages-1-page;$('#left').textContent=rem?`${Math.max(1,Math.round(rem*.9))} min restantes`:'Terminé';
+  const vis=[...document.querySelectorAll('.chap')].filter(c=>c.offsetLeft<=page*view.clientWidth+5).pop();
+  $('#ct').textContent=vis?LIVRE.chapitres[vis.dataset.c].titre:LIVRE.titre;
+  try{localStorage.setItem('maree',JSON.stringify({fs,r:ratio,t:document.body.dataset.t}))}catch{}
+}
+$('#next').onclick=$('#zr').onclick=()=>go(page+1);$('#prev').onclick=$('#zl').onclick=()=>go(page-1);
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(page+1);if(e.key==='ArrowLeft')go(page-1)});
+let x0=null;view.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});view.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(page+(d<0?1:-1));x0=null});
+$('#prog').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();go(Math.round((e.clientX-r.left)/r.width*(pages-1)))};
+$('#opt').onclick=e=>{e.stopPropagation();$('#panel').classList.toggle('on')};
+document.addEventListener('click',e=>{if(!e.target.closest('#panel'))$('#panel').classList.remove('on')});
+$('#fp').onclick=()=>{fs=Math.min(28,fs+2);layout()};$('#fm').onclick=()=>{fs=Math.max(14,fs-2);layout()};
+document.querySelectorAll('.th').forEach(b=>b.onclick=()=>{document.body.dataset.t=b.dataset.t;go(page,true)});
+$('#toc').onclick=e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();const c=document.querySelector(`.chap[data-c="${a.dataset.c}"]`);go(Math.round(c.offsetLeft/view.clientWidth));$('#panel').classList.remove('on')};
+if(st.t)document.body.dataset.t=st.t;
+addEventListener('resize',layout);document.fonts.ready.then(layout);
+</script></body></html>

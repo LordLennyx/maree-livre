@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ce que la marée rapporte — Danièle Nkotto</title>
+<meta name="description" content="Le premier roman de Danièle Nkotto. Une bouteille, une lettre, vingt-quatre années de patience. Lire l'extrait gratuitement.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="fichiers/couverture-face.svg">
+<style>
+:root{--nuit:#0f3b47;--abysse:#0a2a33;--corail:#e8765c;--sable:#f2e3c9;--ecume:#cfe0dc;--pap:#f8f3ea;--ink:#1d2427;--mute:#6c7476}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--pap);color:var(--ink);font:400 17px/1.65 Karla,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.d{font-family:'Libre Caslon Display',Georgia,serif;font-weight:400}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.sc{font:600 12px Karla;letter-spacing:.26em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:100px;background:var(--corail);color:#fff;text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#d9603f}
+.btn.gh{background:transparent;color:var(--sable);box-shadow:inset 0 0 0 1.5px #f2e3c966}
+.btn.gh:hover{background:#ffffff14}
+.btn.dk{background:var(--nuit)}
+/* héros */
+.hero{background:radial-gradient(ellipse at 75% 30%,#1a5664 0,var(--nuit) 45%,var(--abysse) 100%);color:var(--sable);overflow:hidden;position:relative}
+.hero canvas{position:absolute;inset:auto 0 0 0;width:100%;height:42%;opacity:.55}
+nav.top{display:flex;justify-content:space-between;align-items:center;height:80px;position:relative;z-index:2}
+nav.top b{font:400 20px 'Libre Caslon Display'}
+nav.top div{display:flex;gap:28px;font-size:14.5px}
+nav.top div a{text-decoration:none;opacity:.8}nav.top div a:hover{opacity:1}
+.hg{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:calc(100svh - 80px);padding-bottom:60px;position:relative;z-index:2}
+.hg h1{font-size:clamp(52px,7vw,104px);line-height:.95;margin:22px 0 26px;letter-spacing:-.01em}
+.hg h1 span{color:var(--corail)}
+.hg p{font:400 21px/1.5 'Libre Caslon Text';font-style:italic;max-width:24em;color:var(--ecume)}
+.hg .cta{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.hg .by{margin-top:44px;display:flex;gap:30px;font-size:14px;color:#9fbcbc}
+.hg .by b{display:block;color:var(--sable);font:400 22px 'Libre Caslon Display'}
+/* livre 3D */
+.scene{perspective:1800px;display:grid;place-items:center;height:620px}
+.book{--w:330px;--h:510px;--d:34px;width:var(--w);height:var(--h);position:relative;transform-style:preserve-3d;transform:rotateY(-28deg) rotateX(6deg);transition:transform .25s ease-out}
+.book>*{position:absolute;inset:0}
+.book .front{background:url(fichiers/couverture-face.svg) center/cover;border-radius:2px 6px 6px 2px;transform:translateZ(calc(var(--d)/2));box-shadow:inset 4px 0 10px rgba(0,0,0,.35)}
+.book .back{background:var(--nuit);transform:rotateY(180deg) translateZ(calc(var(--d)/2));border-radius:6px 2px 2px 6px}
+.book .spine{width:var(--d);left:calc(var(--d)/-2);background:linear-gradient(90deg,#071e25,#0d3440 40%,#0a2a33);transform:rotateY(-90deg);display:grid;place-items:center}
+.book .spine span{writing-mode:vertical-rl;font:400 13px 'Libre Caslon Display';color:var(--sable);letter-spacing:.04em}
+.book .pages{width:calc(var(--d) - 4px);left:auto;right:calc(var(--d)/-2 + 2px);top:4px;bottom:4px;background:repeating-linear-gradient(90deg,#f5efe2 0 1px,#e2d9c6 1px 2px);transform:rotateY(90deg)}
+.book .shadow{transform:rotateX(90deg) translateZ(calc(var(--h)/-2 - 1px));background:radial-gradient(closest-side,rgba(0,0,0,.5),transparent);height:var(--d);top:auto;bottom:0;filter:blur(8px)}
+section{padding:110px 0}
+.syn{display:grid;grid-template-columns:5fr 7fr;gap:80px}
+.syn h2{font-size:clamp(36px,4vw,56px);line-height:1.04}
+.syn .t p{font:400 20px/1.7 'Libre Caslon Text';margin-bottom:20px;color:#2c3437}
+.syn .t p:first-child::first-letter{font:400 72px/.8 'Libre Caslon Display';float:left;margin:8px 10px 0 0;color:var(--corail)}
+.quotes{background:var(--sable)}
+.qg{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.qg blockquote{font:400 25px/1.35 'Libre Caslon Display'}
+.qg cite{display:block;margin-top:14px;font:600 12px Karla;letter-spacing:.2em;text-transform:uppercase;font-style:normal;color:#b4563f}
+.extrait{background:var(--nuit);color:var(--sable);text-align:center}
+.extrait h2{font-size:clamp(36px,4.4vw,60px);line-height:1.05;margin:16px 0}
+.extrait p{max-width:34em;margin:0 auto 34px;color:var(--ecume)}
+.pagebook{display:flex;justify-content:center;gap:0;margin:0 auto 40px;max-width:760px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4))}
+.pagebook div{flex:1;background:#fbf7ef;color:#222;padding:44px 40px;text-align:left;font:400 14.5px/1.6 'Libre Caslon Text';min-height:380px}
+.pagebook div:first-child{border-radius:4px 0 0 4px;box-shadow:inset -20px 0 30px -20px rgba(0,0,0,.25)}
+.pagebook div:last-child{border-radius:0 4px 4px 0;box-shadow:inset 20px 0 30px -20px rgba(0,0,0,.25)}
+.pagebook .n{font:600 9px Karla;letter-spacing:.3em;color:#b4563f;text-align:center}
+.pagebook h3{text-align:center;font-size:24px;margin:6px 0 22px}
+.pagebook p{text-indent:1.3em;text-align:justify}
+.pagebook p.premier{text-indent:0}.pagebook p.premier::first-letter{font:400 40px/.8 'Libre Caslon Display';float:left;margin:3px 6px 0 0;color:#0f3b47}
+/* atelier */
+.atelier h2{font-size:clamp(36px,4vw,56px);line-height:1.04;margin:14px 0 14px}
+.flat{position:relative;margin-top:44px;background:#e8e0d1;border-radius:20px;padding:30px}
+.flat img{width:100%;display:block;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
+.flat .tg{position:absolute;top:44px;right:44px;display:flex;gap:8px}
+.tg button{font:600 13px Karla;height:38px;padding:0 16px;border-radius:100px;border:0;background:#fff;cursor:pointer}
+.tg button.on{background:var(--nuit);color:var(--sable)}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+.specs div{border-top:1.5px solid var(--ink);padding-top:12px;font-size:14.5px;color:var(--mute)}
+.specs b{display:block;font:400 24px 'Libre Caslon Display';color:var(--ink)}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:40px}
+.files a{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #e3dccd;border-radius:14px;padding:16px;text-decoration:none;transition:border-color .2s}
+.files a:hover{border-color:var(--corail)}
+.files i{width:46px;height:46px;border-radius:10px;background:var(--nuit);color:var(--sable);display:grid;place-items:center;font:600 11px Karla;font-style:normal;flex:none}
+.files small{display:block;color:var(--mute);font-size:13px}
+.auteur{display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:linear-gradient(160deg,#e8765c,#0f3b47);position:relative;overflow:hidden}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%}
+.auteur h2{font-size:44px;margin:12px 0 16px}
+.buy{background:var(--abysse);color:var(--sable)}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.bg h2{font-size:clamp(36px,4.4vw,60px);line-height:1.04;margin:14px 0}
+.ed{display:grid;gap:12px}
+.ed label{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:14px;background:#ffffff0d;border:1.5px solid #ffffff1f;cursor:pointer}
+.ed label:has(input:checked){border-color:var(--corail);background:#e8765c1a}
+.ed input{accent-color:var(--corail);width:18px;height:18px}
+.ed b{margin-left:auto;font:400 22px 'Libre Caslon Display'}
+.ed small{display:block;color:#9fbcbc}
+.msg{min-height:24px;margin-top:12px;color:var(--ecume);font-size:14.5px}
+footer{background:var(--abysse);color:#7f9ea0;padding:30px 0;font-size:13px;border-top:1px solid #ffffff14}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}[data-r].in{opacity:1;transform:none}
+@media (max-width:900px){.hg,.syn,.auteur,.bg{grid-template-columns:1fr;gap:40px}.scene{height:460px}.book{--w:250px;--h:386px;--d:26px}.qg{grid-template-columns:1fr}.specs{grid-template-columns:1fr 1fr}nav.top div{display:none}.pagebook div:last-child{display:none}.flat{padding:14px}.flat .tg{position:static;margin-bottom:12px}section{padding:80px 0}.portrait{max-width:260px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <canvas id="sea"></canvas>
+  <div class="wrap">
+    <nav class="top"><b>Danièle Nkotto</b><div><a href="#livre">Le livre</a><a href="#extrait">Extrait</a><a href="#atelier">Fabrication</a><a href="#auteure">L'autrice</a><a href="#commander">Commander</a></div></nav>
+    <div class="hg">
+      <div>
+        <span class="sc" style="color:var(--corail)">Premier roman · en librairie le 14 novembre</span>
+        <h1>Ce que la <span>marée</span> rapporte</h1>
+        <p>« À la personne qui trouvera ceci, je vous demande pardon de vous déranger. »</p>
+        <div class="cta"><a class="btn" href="lire.html">Lire les premiers chapitres</a><a class="btn gh" href="#commander">Commander</a></div>
+        <div class="by"><div><b>132</b>pages</div><div><b>14,90 €</b>broché</div><div><b>6,99 €</b>numérique</div></div>
+      </div>
+      <div class="scene" id="scene"><div class="book" id="book"><div class="shadow"></div><div class="back"></div><div class="pages"></div><div class="spine"><span>Ce que la marée rapporte · D. Nkotto</span></div><div class="front"></div></div></div>
+    </div>
+  </div>
+</header>
+
+<section id="livre"><div class="wrap syn">
+  <div data-r><span class="sc" style="color:#b4563f">Le livre</span><h2 style="margin-top:14px">Vingt-quatre bouteilles. Une seule est revenue.</h2></div>
+  <div class="t" data-r><p>Après vingt ans à Douala, Awa revient à Londji, le village de pêcheurs où elle a grandi, pour vider la maison de sa grand-mère. Elle n'a pas encore osé ouvrir l'armoire quand la mer dépose à ses pieds une bouteille verte, scellée de cire rouge.</p><p>À l'intérieur, une lettre, écrite le jour de son départ et adressée « à la personne qui trouvera ceci ». Dans le cahier où Mama Ngo notait le prix du poisson depuis 1971, Awa découvre que ce n'était pas la seule.</p><p>Un roman sur ceux qui partent, ceux qui attendent, et la patience obstinée de la mer.</p></div>
+</div></section>
+
+<section class="quotes"><div class="wrap qg">
+  <blockquote data-r>« Une première fiction d'une justesse rare. On referme le livre avec du sel sur les lèvres. »<cite>Le Courrier du Littoral</cite></blockquote>
+  <blockquote data-r>« Danièle Nkotto écrit l'absence comme on écrit la mer : par vagues, sans jamais forcer. »<cite>Revue Mosaïques</cite></blockquote>
+  <blockquote data-r>« Le genre de livre qu'on offre à sa mère, puis qu'on lui reprend pour le relire. »<cite>Librairie des Peuples, Yaoundé</cite></blockquote>
+</div></section>
+
+<section class="extrait" id="extrait"><div class="wrap">
+  <span class="sc" style="color:var(--corail)">Extrait gratuit</span>
+  <h2>Les quatre premiers chapitres,<br>offerts.</h2>
+  <p>Lisez-les dans votre navigateur, sur téléphone comme sur ordinateur, avec la taille de texte et l'ambiance qui vous conviennent.</p>
+  <div class="pagebook" id="pb"></div>
+  <a class="btn" href="lire.html">Ouvrir la liseuse</a>
+</div></section>
+
+<section class="atelier" id="atelier"><div class="wrap">
+  <span class="sc" style="color:#b4563f">Dans l'atelier</span>
+  <h2>De la couverture au fichier imprimeur.</h2>
+  <p style="max-width:40em;color:var(--mute)">Couverture complète prête pour l'impression à la demande (Amazon KDP, IngramSpark, Lulu) : dos, tranche calculée selon le nombre de pages et le papier, fond perdu de 3 mm, zones de sécurité. Le texte est vectorisé, aucune police n'est à fournir à l'imprimeur.</p>
+  <div class="flat" data-r><div class="tg"><button class="on" data-v="couverture-complete">Couverture</button><button data-v="couverture-reperes">Repères d'impression</button></div><img id="flatImg" src="fichiers/couverture-complete.svg" alt="Couverture complète à plat : dos, tranche et face"></div>
+  <div class="specs" id="specs"></div>
+  <div class="files">
+    <a href="fichiers/couverture-imprimeur.pdf" download><i>PDF</i><span>Couverture imprimeur<small>Fond perdu inclus, vectoriel</small></span></a>
+    <a href="fichiers/interieur.pdf" download><i>PDF</i><span>Intérieur mis en page<small>5,5 × 8,5 po, folios, titres courants</small></span></a>
+    <a href="fichiers/ce-que-la-maree-rapporte.epub" download><i>EPUB</i><span>Livre numérique<small>EPUB 3, sommaire, lettrines</small></span></a>
+    <a href="fichiers/couverture-face.svg" download><i>SVG</i><span>Face avant seule<small>Pour les librairies en ligne</small></span></a>
+  </div>
+</div></section>
+
+<section id="auteure" style="padding-top:0"><div class="wrap auteur">
+  <div class="portrait" data-r><svg viewBox="0 0 260 325"><circle cx="130" cy="122" r="46" fill="#f2e3c9" opacity=".9"/><path d="M40 325c0-62 40-104 90-104s90 42 90 104z" fill="#f2e3c9" opacity=".9"/><path d="M84 112c0-40 26-60 50-60 30 0 46 24 46 50 0 10-4 18-4 18-8-30-36-30-58-26-14 2-26 10-34 18z" fill="#0a2a33"/></svg></div>
+  <div data-r><span class="sc" style="color:#b4563f">L'autrice</span><h2>Danièle Nkotto</h2><p style="font:400 19px/1.7 'Libre Caslon Text';color:#2c3437;max-width:36em">Née à Kribi en 1988, Danièle Nkotto a été journaliste à Douala avant de revenir s'installer sur la côte. <em>Ce que la marée rapporte</em> est son premier roman. Elle y travaille depuis le jour où, enfant, elle a trouvé sur la plage une sandale qui n'était à personne.</p></div>
+</div></section>
+
+<section class="buy" id="commander"><div class="wrap bg">
+  <div><span class="sc" style="color:var(--corail)">Commander</span><h2>Recevez le livre, ou lisez-le ce soir.</h2><p style="color:var(--ecume)">Livraison au Cameroun, en France et en Belgique. Exemplaires dédicacés pour les commandes avant le 30 novembre.</p></div>
+  <form id="buyF">
+    <div class="ed">
+      <label><input type="radio" name="e" value="Broché" checked><span>Broché<small>132 pages, papier crème</small></span><b>14,90 €</b></label>
+      <label><input type="radio" name="e" value="Numérique"><span>Numérique<small>EPUB et PDF, sans DRM</small></span><b>6,99 €</b></label>
+      <label><input type="radio" name="e" value="Dédicacé"><span>Broché dédicacé<small>Avec un mot de l'autrice</small></span><b>17,90 €</b></label>
+    </div>
+    <button class="btn" style="margin-top:18px;width:100%;justify-content:center">Ajouter au panier</button>
+    <p class="msg" id="msg" role="status"></p>
+  </form>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Danièle Nkotto, Éditions du Littoral — roman, autrice et éditeur fictifs</span><span>Couverture, mise en page, ebook et site : Njundiyimun Béchard</span></div></footer>
+
+<script src="texte.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+// Livre 3D qui suit la souris
+const book=$('#book');let raf;
+$('#scene').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>book.style.transform=`rotateY(${-28+x*50}deg) rotateX(${6-y*16}deg)`)});
+$('#scene').addEventListener('pointerleave',()=>book.style.transform='');
+// Mer animée
+const cv=$('#sea'),cx=cv.getContext('2d');
+function sea(t){const w=cv.width=cv.clientWidth*devicePixelRatio,h=cv.height=cv.clientHeight*devicePixelRatio;cx.clearRect(0,0,w,h);
+  for(let i=0;i<26;i++){const y0=i/26*h,amp=(2+i*.5)*devicePixelRatio;cx.beginPath();for(let x=0;x<=w;x+=10){const y=y0+Math.sin(x*.006+t*.0006*(1+i*.04)+i)*amp+Math.sin(x*.017-t*.0009+i*2)*amp*.4;x?cx.lineTo(x,y):cx.moveTo(x,y)}
+  cx.strokeStyle=i%7===3?'rgba(232,118,92,.5)':`rgba(207,224,220,${.12+i/50})`;cx.lineWidth=devicePixelRatio;cx.stroke()}
+  requestAnimationFrame(sea)}
+requestAnimationFrame(sea);
+// Double page d'extrait
+const c0=LIVRE.chapitres[0];
+$('#pb').innerHTML=`<div><div class="n">UN</div><h3>${c0.titre}</h3><p class="premier">${c0.paras[0]}</p></div><div><p style="text-indent:0">${c0.paras[1]}</p><p>${c0.paras[2]}</p><p>${c0.paras[3]}</p></div>`;
+// Couverture à plat
+document.querySelectorAll('.tg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tg button').forEach(x=>x.classList.toggle('on',x===b));$('#flatImg').src='fichiers/'+b.dataset.v+'.svg'});
+fetch('fichiers/gabarit.json').then(r=>r.json()).then(g=>{const cm=v=>(v*2.54).toFixed(2).replace('.',',');
+  $('#specs').innerHTML=`<div><b>${cm(5.5)} × ${cm(8.5)} cm</b>Format fini (5,5 × 8,5 po)</div><div><b>${cm(g.tranche_po)} cm</b>Tranche pour ${g.pages} pages crème</div><div><b>${cm(g.largeur_po)} × ${cm(g.hauteur_po)} cm</b>Couverture à plat avec fond perdu</div><div><b>3,2 mm</b>Fond perdu et zone de sécurité</div>`}).catch(()=>{});
+$('#buyF').onsubmit=e=>{e.preventDefault();const v=new FormData(e.target).get('e');$('#msg').textContent=`Édition « ${v} » ajoutée au panier. (Démonstration : aucun paiement.)`};
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&(e.target.classList.add('in'),io.unobserve(e.target))),{threshold:.15});
+document.querySelectorAll('[data-r]').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>

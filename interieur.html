@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Ce que la marée rapporte — intérieur</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@500;600&display=swap" rel="stylesheet">
+<style>
+@page{size:5.5in 8.5in;margin:.8in .65in .85in .75in;
+  @bottom-center{content:counter(page);font:9pt 'Libre Caslon Text',serif;color:#555}}
+@page :left{margin-left:.65in;margin-right:.75in;@top-left{content:"Danièle Nkotto";font:italic 8pt 'Libre Caslon Text';color:#777}}
+@page :right{@top-right{content:"Ce que la marée rapporte";font:italic 8pt 'Libre Caslon Text';color:#777}}
+@page nu{@top-left{content:none}@top-right{content:none}@bottom-center{content:none}}
+@page chap:first{@top-left{content:none}@top-right{content:none}}
+body{font:10.5pt/1.48 'Libre Caslon Text',Georgia,serif;color:#1b1b1b;margin:0;hyphens:auto;-webkit-hyphens:auto}
+.liminaire{page:nu;break-after:page;height:6.8in;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.titre h1{font:400 30pt/1.05 'Libre Caslon Display',serif;margin:.2in 0}
+.sc{font:600 8pt Karla,sans-serif;letter-spacing:.28em;text-transform:uppercase}
+.copy{justify-content:flex-end;text-align:left;font-size:7.5pt;line-height:1.5;color:#444}
+.ded{font-style:italic}
+.toc{page:nu;break-after:page}
+.toc h2{font:400 18pt 'Libre Caslon Display';margin:1in 0 .3in}
+.toc div{display:flex;gap:6px;margin-bottom:6pt}.toc div span:nth-child(2){flex:1;border-bottom:1px dotted #999;margin-bottom:4pt}
+section{page:chap;break-before:right}
+.num{font:600 8pt Karla;letter-spacing:.32em;color:#b4563f;text-align:center;margin-top:1.2in}
+section h2{font:400 21pt/1.1 'Libre Caslon Display';text-align:center;margin:.12in 0 .5in}
+p{margin:0;text-indent:1.3em;text-align:justify;orphans:2;widows:2}
+p.premier{text-indent:0}
+p.premier::first-letter{font:400 40pt/.8 'Libre Caslon Display';float:left;margin:.04in .06in 0 0;color:#0f3b47}
+p.dial{text-indent:1.3em}
+.fin{text-align:center;margin-top:.3in;letter-spacing:.6em;color:#999}
+@media screen{body{background:#ddd;padding:20px}section,.liminaire,.toc{background:#fff;width:5.5in;margin:0 auto 20px;padding:.8in .7in;box-sizing:border-box}}
+</style></head><body>
+<div class="liminaire titre" id="t"></div>
+<div class="liminaire copy" id="c"></div>
+<div class="liminaire ded" id="d"></div>
+<div class="toc" id="toc"></div>
+<div id="corps"></div>
+<script src="texte.js"></script>
+<script>
+const N=['UN','DEUX','TROIS','QUATRE','CINQ'];
+t.innerHTML=`<span class="sc">${LIVRE.auteur}</span><h1>${LIVRE.titre}</h1><span class="sc" style="letter-spacing:.2em">roman</span><div style="margin-top:2.4in" class="sc">${LIVRE.editeur}</div>`;
+c.innerHTML=`<p style="text-indent:0">${LIVRE.titre}<br>© ${LIVRE.auteur}, ${LIVRE.editeur}, ${LIVRE.annee}.<br>Œuvre de fiction. Toute ressemblance avec des personnes existantes serait fortuite.<br><br>Couverture et mise en page : Njundiyimun Béchard.<br>Composé en Libre Caslon Text et Karla.<br>ISBN 978-2-0000-0000-0 (gabarit)<br>Dépôt légal : novembre ${LIVRE.annee}</p>`;
+d.innerHTML=`<p style="text-indent:0;text-align:center">${LIVRE.dedicace}</p>`;
+toc.innerHTML='<h2>Sommaire</h2>'+LIVRE.chapitres.map((ch,i)=>`<div><span>${N[i].charAt(0)+N[i].slice(1).toLowerCase()}. ${ch.titre}</span><span></span></div>`).join('');
+corps.innerHTML=LIVRE.chapitres.map((ch,i)=>`<section><div class="num">${N[i]}</div><h2>${ch.titre}</h2>${ch.paras.map((p,j)=>`<p class="${j?'':'premier'}">${p}</p>`).join('')}${i===LIVRE.chapitres.length-1?'<p class="fin">* * *</p>':''}</section>`).join('');
+</script></body></html>

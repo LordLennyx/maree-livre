@@ -1,0 +1,22 @@
+{
+  "titre": "Ce que la <em>marée</em> rapporte",
+  "type": "Livre · Couverture · Ebook",
+  "sous_titre": "Couverture KDP, mise en page, EPUB, liseuse et site du livre",
+  "couleur": "#e8765c",
+  "graine": 6,
+  "voix": [[3.3, "Un livre, de la couverture au fichier imprimeur,"], [9.5, "une page de lancement avec le livre en trois dimensions,"], [15.5, "une liseuse en ligne, et la couverture complète, prête pour l'impression."]],
+  "etapes": [
+    {"t": "hover", "sel": "#scene", "pause": 200},
+    {"t": "eval", "js": "const s=document.querySelector('#scene'),r=s.getBoundingClientRect();let k=0;const id=setInterval(()=>{k+=.04;const x=r.left+r.width*(.5+Math.sin(k*3)*.4),y=r.top+r.height*(.5+Math.cos(k*2)*.2);s.dispatchEvent(new PointerEvent('pointermove',{clientX:x,clientY:y,bubbles:true}));document.getElementById('__c').style.transform='translate('+(x-11)+'px,'+(y-11)+'px)';if(k>2.2)clearInterval(id)},40)", "pause": 2600},
+    {"t": "goto", "url": "lire.html"},
+    {"t": "click", "sel": "#next", "pause": 700},
+    {"t": "click", "sel": "#next", "pause": 700},
+    {"t": "click", "sel": "#next", "pause": 500},
+    {"t": "click", "sel": "#opt", "pause": 400},
+    {"t": "click", "sel": ".th[data-t=sepia]", "pause": 500},
+    {"t": "click", "sel": "#fp", "pause": 600},
+    {"t": "click", "sel": ".th[data-t=nuit]", "pause": 900},
+    {"t": "goto", "url": "index.html#atelier"},
+    {"t": "click", "sel": ".tg button:nth-child(2)", "pause": 1500}
+  ]
+}
